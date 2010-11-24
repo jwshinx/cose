@@ -1,0 +1,38 @@
+<h3>Assignment: <%=h @assignment.assignable_type %></h3>
+<% if flash[:notice] %>
+  <div id="notice"><span><%= flash[:notice] %></span></div>
+<% end -%>
+<p>
+  <b>Name:</b>
+  <%=h @assignment.name %>
+</p>
+<p>
+  <b>Due:</b>
+  <%=h @assignment.assignable.due %>
+</p>
+<p>
+  <b>Priority:</b>
+  <%=h @assignment.assignable.priority %>
+</p>
+<p>
+  <b>Label:</b>
+  <%=h @assignment.assignable.label %>
+</p>
+
+<p>
+  <b>Reminder:</b>
+  <%=h @assignment.reminder %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @assignment.category.name %>
+</p>
+<p>
+  <b>Status:</b>
+  <%=h @assignment.status.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+<%= link_to 'Back', assignments_path %>

@@ -1,0 +1,40 @@
+<h3>Note: <%=h @assignment.name %></h3>
+<% if flash[:notice] %>
+  <div id="notice"><span><%= flash[:notice] %></span></div>
+<% end %>
+
+<p>
+  <b>Name:</b>
+  <%=h @assignment.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @note.description %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%=h @note.priority %>
+</p>
+
+<p>
+  <b>Label:</b>
+  <%=h @note.label %>
+</p>
+<p>
+  <b>Reminder:</b>
+  <%=h @assignment.reminder %>
+</p>
+<p>
+  <b>Category:</b>
+  <%=h @assignment.category.name %>
+</p>
+<p>
+  <b>Status:</b>
+  <%=h @assignment.status.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<%= link_to 'Back', notes_path %>

@@ -1,0 +1,16 @@
+  def get_category_dropdown
+    @user = User.find(session[:user_id])
+    @categories = Category.find(:all, 
+                            :conditions => ["user_id = ?", @user.id],
+                            :order => "name ASC").map do |c|
+      [c.name, c.id]
+    end
+  end
+  def get_status_dropdown
+    @user = User.find(session[:user_id])
+    @statuses = Status.find(:all, 
+                            :conditions => ["user_id = ?", @user.id],
+                            :order => "name ASC").map do |s|
+      [s.name, s.id]
+    end
+  end

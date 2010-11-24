@@ -1,0 +1,16 @@
+      <p>
+        <%= assignment.label :name %><br />
+        <%= assignment.text_field :name %>
+      </p>
+      <p>
+        <%= assignment.label :reminder %><br />
+        <%= assignment.date_select :reminder %>
+      </p>
+      <p>
+        <%= assignment.label :category %><br />
+        <%= assignment.select :category_id, @categories %>
+      </p>
+      <p>
+        <%= assignment.label :status %><br />
+        <%= assignment.select :status_id, @statuses %>
+      </p>

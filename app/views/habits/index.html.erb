@@ -1,0 +1,43 @@
+<h1>Listing habits</h1>
+
+<div class="data_area">
+  <table>
+    <tr>
+      <th>Status</th>
+      <th>Name</th>
+      <th>Reminder</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Time</th>
+      <th>Label</th>
+      <th>Frequency</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% for a in @habit_assignments %>
+      <tr>
+        <td><%=h a.status.name %></td>
+        <td><%=h a.name %></td>
+        <td><%=h a.reminder %></td>
+        <td><%=h a.category.name %></td>
+        <td><%=h a.assignable.description %></td>
+        <td><%=h a.assignable.time %></td>
+        <td><%=h a.assignable.label %></td>
+        <td><%=h a.assignable.frequency %></td>
+        <td><%= link_to 'Show', :controller => 'habits',
+                            :action => 'show',
+                            :id => a.assignable %></td>
+        <td><%= link_to 'Edit', edit_habit_path(a.assignable) %></td>
+        <td><%= link_to 'Destroy', { :controller => 'habits',
+              :action => 'destroy', :id => a },
+              :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<br />
+
+<%= link_to 'New habit', new_habit_path %>

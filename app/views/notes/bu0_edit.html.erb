@@ -1,0 +1,48 @@
+<h1>Editing Note</h1>
+ 
+  <!--
+<x %x form_for @assignment, 
+   :url => { :controller => :notes, :action => :update, :id => @assignment } do |f| x % x x >
+  -->
+
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :reminder %><br />
+    <%= f.date_select :reminder %>
+  </p>
+  <p>
+    <%= f.label :category %><br />
+    <%= f.select :category_id, @categories %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.select :status_id, @statuses %>
+  </p>
+  
+  <% fields_for :note do |note| %>
+    <p>
+      <%= note.label :description %><br />
+      <%= note.text_area :description %>
+    </p>
+    <p>
+      <%= note.label :priority %><br />
+      <%= note.text_field :priority %>
+    </p>
+    <p>
+      <%= note.label :label %><br />
+      <%= note.text_field :label %>
+    </p>
+
+  <% end %>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @assignment %> |
+<%= link_to 'Back', notes_path %>

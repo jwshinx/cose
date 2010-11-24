@@ -1,0 +1,43 @@
+<h3>Habit: <%=h @assignment.name %></h3>
+<% if flash[:notice] %>
+  <div id="notice"><span><%= flash[:notice] %></span></div>
+<% end %>
+
+<p>
+  <b>Name:</b>
+  <%=h @assignment.name %>
+</p>
+<p>
+  <b>Description:</b>
+  <%=h @habit.description %>
+</p>
+<p>
+  <b>Time:</b>
+  <%=h @habit.time %>
+</p>
+
+<p>
+  <b>Label:</b>
+  <%=h @habit.label %>
+</p>
+
+<p>
+  <b>Frequency:</b>
+  <%=h @habit.frequency %>
+</p>
+<p>
+  <b>Reminder:</b>
+  <%=h @assignment.reminder %>
+</p>
+<p>
+  <b>Category:</b>
+  <%=h @assignment.category.name %>
+</p>
+<p>
+  <b>Status:</b>
+  <%=h @assignment.status.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_habit_path(@habit) %> |
+<%= link_to 'Back', habits_path %>

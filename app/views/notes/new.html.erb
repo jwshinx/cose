@@ -1,0 +1,44 @@
+<h1>New Note</h1>
+<%= error_messages_for(:assignment) %>
+
+<% form_for(@note) do |f| %>
+  <%= f.error_messages %>
+
+  <% fields_for :assignment do |assignment| %>
+
+    <p>
+      <%= assignment.label :name %><br />
+      <%= assignment.text_field :name %>
+    </p>
+    <p>
+      <%= assignment.label :reminder %><br />
+      <%= assignment.date_select :reminder %>
+    </p>
+    <p>
+      <%= assignment.label :category %><br />
+      <%= assignment.select :category_id, @categories %>
+    </p>
+    <p>
+      <%= assignment.label :status %><br />
+      <%= assignment.select :status_id, @statuses %>
+    </p>
+  <% end %>
+
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, { :rows => 5, :cols => 60 } %>
+  </p>
+  <p>
+    <%= f.label :priority %> (1 highest, 5 lowest)<br />
+    <%= f.text_field :priority %>
+  </p>
+  <p>
+    <%= f.label :label %><br />
+    <%= f.text_field :label %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', notes_path %>

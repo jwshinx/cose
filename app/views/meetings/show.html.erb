@@ -1,0 +1,38 @@
+<h3>Meeting: <%=h @assignment.name %></h3>
+<% if flash[:notice] %>
+  <div id="notice"><span><%= flash[:notice] %></span></div>
+<% end %>
+
+<p>
+  <b>Name:</b>
+  <%=h @assignment.name %>
+</p>
+<p>
+  <b>Description:</b>
+  <%=h @meeting.description %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%=h @meeting.time %>
+</p>
+
+<p>
+  <b>Label:</b>
+  <%=h @meeting.label %>
+</p>
+<p>
+  <b>Reminder:</b>
+  <%=h @assignment.reminder %>
+</p>
+<p>
+  <b>Category:</b>
+  <%=h @assignment.category.name %>
+</p>
+<p>
+  <b>Status:</b>
+  <%=h @assignment.status.name %>
+</p>
+
+<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
+<%= link_to 'Back', meetings_path %>

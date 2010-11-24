@@ -1,0 +1,48 @@
+<h1>Editing habit</h1>
+
+<% form_for(@habit) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description, { :rows => 5, :cols => 60 } %>
+  </p>
+  <p>
+    <%= f.label :time %><br />
+    <%= f.datetime_select :time %>
+  </p>
+  <p>
+    <%= f.label :label %><br />
+    <%= f.text_field :label %>
+  </p>
+  <p>
+    <%= f.label :frequency %><br />
+    <%= f.text_field :frequency %>
+  </p>
+
+  <% fields_for :assignment do |assignment| %>
+    <p>
+        <%= assignment.label :name %><br />
+        <%= assignment.text_field :name %>
+    </p>
+    <p>
+        <%= assignment.label :reminder %><br />
+        <%= assignment.date_select :reminder %>
+    </p>
+    <p>
+        <%= assignment.label :category %><br />
+        <%= assignment.select :category_id, @categories %>
+    </p>
+    <p>
+        <%= assignment.label :status %><br />
+        <%= assignment.select :status_id, @statuses %>
+    </p>
+  <% end %>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<!-- < link_to 'Show', @habit > |-->
+<%= link_to 'Show', :controller => 'habits', :action => 'show',
+                    :id => @habit %> |
+<%= link_to 'Back', habits_path %>

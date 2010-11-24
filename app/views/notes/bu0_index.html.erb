@@ -1,0 +1,33 @@
+<h1>Listing Notes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Reminder</th>
+    <th>Category</th>
+    <th>Status</th>
+    <th>Description</th>
+    <th>Priority</th>
+    <th>Label</th>
+  </tr>
+
+<% for a in @note_assignments %>
+  <tr>
+    <td><%=h a.name %></td>
+    <td><%=h a.reminder %></td>
+    <td><%=h a.category.name %></td>
+    <td><%=h a.status.name %></td>
+    <td><%=h a.assignable.description %></td>
+    <td><%=h a.assignable.priority %></td>
+    <td><%=h a.assignable.label %></td>
+    <td><%= link_to 'Show', :controller => 'notes', :action => 'show',
+                            :id => a.assignable %></td>
+    <td><%= link_to 'Edit', edit_note_path(a.assignable) %></td>
+    <td><%= link_to 'Destroy', a, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New note', new_note_path %>
